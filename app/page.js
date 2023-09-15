@@ -3,10 +3,14 @@ import StudentInfo from "./StudentInfo"
 
 export default function Home() {
   return (
-    <main>
-      <h1>CPRG 306: Web Development 2 - Assignments</h1>
-      <StudentInfo/>
-      <Link href='https://webdev2.warsylewicz.ca/week2'>Week 2</Link>
-    </main>
+    <>
+      <h1 className='px-4 py-2 text-xl font-bold'>CPRG 306: Web Development 2 - Assignments</h1>
+      <main className='px-4 py-2'>
+        <StudentInfo/>
+        <Link href='/week2'>Week 2</Link><br />
+        <Link href='/week3'>Week 3</Link>
+      </main>
+    </>
+
   )
 }
