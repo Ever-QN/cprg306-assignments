@@ -42,6 +42,21 @@ export default function NewItem() {
             />
         </div>
 
+        <div>
+            <label htmlFor="quantity">Quantity: </label>
+            <input
+            type="number"
+            id="quantity"
+            name="quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(Number(e.target.value))}
+            min="1"
+            max="99"
+            required
+            className="border border-gray-300 px-3 py-2 rounded-md w-full focus:outline-none focus:ring focus:border-blue-300 mb-4 text-black" 
+            />
+        </div>
+
     </form>
     )
 }
