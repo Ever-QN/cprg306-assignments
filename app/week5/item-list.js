@@ -44,7 +44,11 @@ export default function ItemList() {
           </button>
         </div>
 
-      
+        <div>
+          {sortedItems.map((item) => (
+            <Item key={item.id} {...item} />
+          ))}
+        </div>
     </div>
     )
 }
