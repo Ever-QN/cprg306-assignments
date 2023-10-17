@@ -24,6 +24,27 @@ export default function ItemList() {
     };
 
     return (
+      <div>
+        <div className="mb-4">
+          <button
+            onClick={() => handleSortChange('name')}
+            className={`ml-4 mr-2 ${
+              sortBy === 'name' ? 'bg-blue-500' : 'bg-slate-500'
+            } text-white px-4 py-2 rounded`}
+          >
+            Sort by Name
+          </button>
+          <button
+            onClick={() => handleSortChange('category')}
+            className={`${
+              sortBy === 'category' ? 'bg-blue-500' : 'bg-slate-500'
+            } text-white px-4 py-2 rounded`}
+          >
+            Sort by Category
+          </button>
+        </div>
+
       
+    </div>
     )
 }
