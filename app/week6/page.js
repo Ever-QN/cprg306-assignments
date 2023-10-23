@@ -4,12 +4,14 @@ import ItemList from "./item-list";
 import NewItem from "./new-item.js";
 import itemsData from "./items.json";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Page() {
-    const items = itemsData;
+
+    const [items, setItems] = useState(itemsData);
 
     function handleAddItem(newItem) {
-        items.push(newItem);
+        setItems([...items, newItem]);
       }
 
 

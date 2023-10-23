@@ -7,6 +7,7 @@ export default function NewItem({ onAddItem }) {
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(1);
     const [category, setCategory] = useState('produce');
+    const [customItemId, setCustomItemId] = useState(1);
 
     const resetStates = () => {
         setName('');
@@ -17,11 +18,13 @@ export default function NewItem({ onAddItem }) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const item = {name, quantity, category};
+        const item = {id: customItemId, name, quantity, category};
 
         console.log(item);
-        
+
         onAddItem(item);
+
+        setCustomItemId((prevItemId) => prevItemId + 1);
 
         resetStates();
     }
