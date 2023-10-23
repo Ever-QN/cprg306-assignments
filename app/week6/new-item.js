@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-export default function NewItem() {
+export default function NewItem({ onAddItem }) {
 
     const [name, setName] = useState('');
     const [quantity, setQuantity] = useState(1);
@@ -20,7 +20,8 @@ export default function NewItem() {
         const item = {name, quantity, category};
 
         console.log(item);
-        alert(`Item: ${item.name}\nQuantity: ${item.quantity}\nCategory: ${item.category}`);
+        
+        onAddItem(item);
 
         resetStates();
     }
