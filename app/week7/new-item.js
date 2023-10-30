@@ -32,7 +32,7 @@ export default function NewItem({ onAddItem }) {
 
 
     return (
-        <form onSubmit={handleSubmit} className='flex flex-col max-w-md mx-auto mt-8 p-4 border rounded-lg shadow-lg'>
+        <form onSubmit={handleSubmit} className='flex flex-col max-w-md mx-auto mt-8 mb-8 p-4 border rounded-lg shadow-lg'>
             <div className='mb-4'>
                 <label htmlFor='name' className=''>Name: </label>
                 <input
