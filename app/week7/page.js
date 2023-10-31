@@ -17,8 +17,8 @@ export default function Page() {
       }
 
     function handleItemSelect(selectedItem) {
-    const cleanedName = selectedItem.name.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '');
-    setSelectedItemName(cleanedName);
+        const cleanedName = selectedItem.name.replace(/,.*|([\u2700-\u27BF]|[\uE000-\uF8FF]|�[�-�]|�[�-�]|[\u2011-\u26FF]|�[�-�])/g, '');
+        setSelectedItemName(cleanedName);
     }
 
 

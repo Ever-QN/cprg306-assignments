@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 
 export default function MealIdeas({ ingredient }) {
   const [meals, setMeals] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const fetchMealIdeas = async (ingredient) => {
     try {
@@ -22,6 +23,7 @@ export default function MealIdeas({ ingredient }) {
   const loadMealIdeas = async () => {
     const ideas = await fetchMealIdeas(ingredient);
     setMeals(ideas);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -30,12 +32,20 @@ export default function MealIdeas({ ingredient }) {
 
   return (
     <div>
-      <h2>Meal Ideas with {ingredient}</h2>
-      <ul>
-        {meals.map((meal) => (
-          <li key={meal.idMeal}>{meal.strMeal}</li>
-        ))}
-      </ul>
+      <h1 className='text-xl font-bold underline'>Meal Ideas with {ingredient}</h1>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {meals.length === 0 ? (
+            <p>No meals for the selected item</p>
+          ) : (
+            meals.map((meal) => (
+              <li key={meal.idMeal}>{meal.strMeal}</li>
+            ))
+          )}
+        </ul>
+      )}
     </div>
   );
 }
