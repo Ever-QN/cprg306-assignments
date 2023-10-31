@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import ItemList from "./item-list";
-import NewItem from "./new-item.js";
-import MealIdeas from "./meal-ideas";
-import itemsData from "./items.json";
-import Link from "next/link";
-import { useState } from "react";
+import ItemList from './item-list';
+import NewItem from './new-item.js';
+import MealIdeas from './meal-ideas';
+import itemsData from './items.json';
+import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Page() {
 
@@ -24,14 +24,14 @@ export default function Page() {
 
     return (
         <main>
-            <div className="flex justify-around">
-                <div className="bg-slate-900 px-4">
-                    <p className="px-4 mb-4 bg-slate-700 hover:underline"><Link href="/">Home</Link></p>
-                    <h1>Shopping List</h1>
+            <div className='flex justify-around'>
+                <div className='bg-slate-900 px-4 py-8 w-1/2 rounded-lg shadow-md'>
+                    <p className='px-4 mb-4 bg-slate-700 hover:underline'><Link href='/'>Home</Link></p>
+                    <h1 className='text-2xl mb-4 text-white'>Shopping List</h1>
                     <NewItem onAddItem={handleAddItem} />
                     <ItemList items={items} onItemSelect={handleItemSelect} />
                 </div>
-                <div className="bg-slate-900 px-4">
+                <div className='bg-slate-900 px-4 py-8 w-1/2 rounded-lg shadow-md'>
                     <MealIdeas ingredient={selectedItemName} />
                 </div>
             </div>
