@@ -1,10 +1,10 @@
 'use client';
 
-import Item from "./item";
-import { useState } from "react";
+import Item from './item';
+import { useState } from 'react';
 
 export default function ItemList({ items, onItemSelect }) {
-    const [sortBy, setSortBy] = useState("name");
+    const [sortBy, setSortBy] = useState('name');
 
     const sortedItems = [...items];
 
@@ -26,7 +26,7 @@ export default function ItemList({ items, onItemSelect }) {
 
     return (
       <div>
-        <div className="mb-4">
+        <div className='mb-4'>
           <button
             onClick={() => handleSortChange('name')}
             className={`ml-4 mr-2 ${
