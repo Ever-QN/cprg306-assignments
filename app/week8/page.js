@@ -21,7 +21,7 @@ export default function Page() {
           <p>Welcome, {user.displayName} ({user.email})</p>
           <button onClick={handleLogout}>Logout</button>
           <p>
-            <Link href='./shopping-list'>Go to Shopping List</Link>
+            <Link href='./week8/shopping-list'>Go to Shopping List</Link>
           </p>
         </div>
       ) : (
