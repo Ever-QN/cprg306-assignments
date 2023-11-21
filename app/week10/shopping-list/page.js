@@ -3,14 +3,14 @@
 import ItemList from './item-list';
 import NewItem from './new-item.js';
 import MealIdeas from './meal-ideas';
-import itemsData from './items.json';
+import { getItems, addItem } from '../_services/shopping-list-service';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useUserAuth } from '../_utils/auth-context';
 
 export default function Page() {
 
-    const [items, setItems] = useState(itemsData);
+    const [items, setItems] = useState([]);
     const [selectedItemName, setSelectedItemName] = useState('');
     const { user } = useUserAuth();
 
@@ -18,8 +18,27 @@ export default function Page() {
         return <p>You are not authenticated. Please log in.</p>;
     }
 
-    function handleAddItem(newItem) {
-        setItems([...items, newItem]);
+    useEffect(() => {
+        const loadItems = async () => {
+            try {
+                const userItems = await getItems(user.uid);
+                setItems(userItems);
+            } catch (error) {
+                console.error('Error loading items:', error.message);
+            }
+        };
+
+        loadItems();
+    }, [user]);
+
+    async function handleAddItem(newItem) {
+        try {
+            const newItemId = await addItem(user.uid, newItem);
+            
+            setItems([...items, { itemId: newItemId, data: newItem }]);
+        } catch (error) {
+            console.error('Error adding item:', error.message);
+        }
     }
 
     function handleItemSelect(selectedItem) {

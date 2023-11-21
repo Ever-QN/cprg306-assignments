@@ -40,3 +40,5 @@ async function addItem(userId, newItem) {
       throw error;
     }
 }
+
+export { getItems, addItem };
